@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load custom_filters %}
+
+{% block title %}Book Travel{% endblock %}
+
+{% block content %}
+    <h1>Book Travel</h1>
+    <h2>{{ travel_option.travel_type }} from {{ travel_option.source }} to {{ travel_option.destination }}</h2>
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="number_of_seats">Number of Seats</label>
+            {{ form.number_of_seats|add_class:"form-control" }}
+        </div>
+        <button type="submit" class="btn btn-primary">Confirm Booking</button>
+    </form>
+{% endblock %}
